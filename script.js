@@ -1,4 +1,8 @@
 // ===== Nova Beauty Parlour =====
+
+// Parlour ka WhatsApp number: country code (91) ke saath, bina + aur space ke
+const WHATSAPP_NUMBER = '919999999999';
+
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu
   const toggle = document.getElementById('menuToggle');
@@ -38,10 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
   today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   dateInput.min = today.toISOString().split('T')[0];
 
-  // Booking form (AJAX to book.php)
+  // Booking form -> opens WhatsApp with all details pre-filled
   const form = document.getElementById('bookingForm');
   const msg = document.getElementById('formMsg');
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     msg.className = 'form-msg';
     msg.textContent = '';
@@ -61,22 +65,26 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Booking...';
-    try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-      const data = await res.json();
-      msg.classList.add(data.success ? 'success' : 'error');
-      msg.textContent = data.message;
-      if (data.success) form.reset();
-    } catch (err) {
-      msg.classList.add('error');
-      msg.textContent = 'Something went wrong. Please call or WhatsApp us.';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Book Appointment';
-    }
+    const get = (name) => form.querySelector(`[name="${name}"]`).value.trim();
+    const [y, m, d] = get('date').split('-');
+    const lines = [
+      '*New Appointment Request - Nova Beauty Parlour*',
+      '',
+      `Name: ${get('name')}`,
+      `Phone: ${get('phone')}`,
+      get('email') ? `Email: ${get('email')}` : '',
+      `Service: ${get('service')}`,
+      `Date: ${d}-${m}-${y}`,
+      `Time: ${get('time')}`,
+      get('message') ? `Message: ${get('message')}` : ''
+    ].filter((line, i) => line !== '' || i === 1);
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank');
+
+    msg.classList.add('success');
+    msg.textContent = 'WhatsApp is opening — please press Send to confirm your booking.';
+    form.reset();
   });
 
   // Reveal on scroll

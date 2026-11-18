@@ -7,7 +7,7 @@
   <meta name="description" content="Nova Beauty Parlour - Hair styling, facials, makeup, bridal packages, waxing, threading, manicure & pedicure. Book your appointment today.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,10 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container nav">
-      <a href="#home" class="logo">Nova<span>Beauty</span></a>
+      <a href="#home" class="logo" aria-label="Nova Beauty Bridal Studio - Home">
+        <span class="logo-name">Nova</span>
+        <span class="logo-tag">Beauty Bridal Studio</span>
+      </a>
       <nav class="nav-links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -53,7 +56,7 @@
           <div class="hero-badge b1">✨ Bridal Makeup</div>
           <div class="hero-badge b2">💆‍♀️ Facials</div>
           <div class="hero-badge b3">💇‍♀️ Hair Spa</div>
-          <span class="hero-emoji">💄</span>
+          <span class="hero-emoji">Nova</span>
         </div>
       </div>
     </div>
@@ -62,7 +65,7 @@
   <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <div class="container about">
-      <div class="about-img" aria-hidden="true"><span>🌸</span></div>
+      <div class="about-img" aria-hidden="true"><span>✦</span></div>
       <div>
         <p class="eyebrow">About Us</p>
         <h2>Beauty care you can trust</h2>
@@ -267,7 +270,7 @@
       <div class="booking-info">
         <p class="eyebrow">Book Appointment</p>
         <h2>Reserve your slot</h2>
-        <p>Fill the form and we will call you to confirm your appointment. You can also book directly on WhatsApp.</p>
+        <p>Fill the form and press the button — WhatsApp will open with your details. Just press Send and we will confirm your appointment.</p>
         <div class="hours">
           <h4>Opening Hours</h4>
           <p><span>Mon – Sat</span><span>10:00 AM – 8:00 PM</span></p>
@@ -309,7 +312,7 @@
           </label>
         </div>
         <label>Message<textarea name="message" rows="3" maxlength="500"></textarea></label>
-        <button type="submit" class="btn btn-block">Book Appointment</button>
+        <button type="submit" class="btn btn-block">Book on WhatsApp</button>
         <p class="form-msg" id="formMsg" role="status"></p>
       </form>
     </div>
@@ -333,7 +336,11 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <a href="#home" class="logo">Nova<span>Beauty</span></a>
+      <a href="#home" class="logo" aria-label="Nova Beauty Bridal Studio - Home">
+        <span class="logo-name">Nova</span>
+        <span class="logo-tag">Beauty Bridal Studio</span>
+      </a>
+      <p class="footer-script">Nova Beauty Bridal Studio</p>
       <p>&copy; <span id="year"></span> Nova Beauty Parlour. All rights reserved.</p>
       <div class="socials">
         <a href="#" aria-label="Instagram">Instagram</a>
