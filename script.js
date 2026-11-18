@@ -1,7 +1,7 @@
 // ===== Nova Beauty Parlour =====
 
 // Parlour ka WhatsApp number: country code (91) ke saath, bina + aur space ke
-const WHATSAPP_NUMBER = '919999999999';
+const WHATSAPP_NUMBER = '918976409531';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu
